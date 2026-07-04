@@ -202,6 +202,6 @@
 
   .hero-btn-offer:hover {
     transform: scale(1.045);
-    border-color: rgba(140, 102, 28, 1);
+    border-color: rgba(255, 255, 255, 0.95);
   }
 }
