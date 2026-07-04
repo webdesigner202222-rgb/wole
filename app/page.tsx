@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { StatsBar } from "@/components/stats-bar"
 import { WhyUsSection } from "@/components/why-us-section"
+import { AboutSection } from "@/components/about-section"
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
       <Hero />
       <StatsBar />
       <WhyUsSection />
+      <AboutSection />
     </main>
   )
 }
