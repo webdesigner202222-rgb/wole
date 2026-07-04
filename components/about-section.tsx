@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image"
+import { useState } from "react"
 
 const PEOPLE = {
   krzysztof: {
@@ -78,26 +81,84 @@ function UsersIcon() {
   )
 }
 
-function ContactIcons({ person }: { person: Person }) {
+function ExpandingContact({
+  href,
+  label,
+  text,
+  align,
+  children,
+}: {
+  href: string
+  label: string
+  text: string
+  align: "left" | "right"
+  children: React.ReactNode
+}) {
+  const [expanded, setExpanded] = useState(false)
+
+  // Left-side badges expand to the right (icon first), right-side badges expand
+  // to the left (icon last) so the revealed text always grows toward the center.
+  const rowDir = align === "left" ? "flex-row" : "flex-row-reverse"
+  const textPad = align === "left" ? "pl-1 pr-4" : "pr-1 pl-4"
+
   return (
-    <div className="flex flex-col items-center">
-      <a
+    <a
+      href={href}
+      aria-label={label}
+      onMouseEnter={() => setExpanded(true)}
+      onMouseLeave={() => setExpanded(false)}
+      onFocus={() => setExpanded(true)}
+      onBlur={() => setExpanded(false)}
+      onClick={(e) => {
+        // On touch devices there is no hover: the first tap reveals the text,
+        // the second tap (already expanded) triggers the call / email.
+        if (!expanded) {
+          e.preventDefault()
+          setExpanded(true)
+        }
+      }}
+      className={`flex h-12 items-center overflow-hidden rounded-full border transition-colors duration-300 ease-out focus-visible:outline-none ${rowDir} ${
+        expanded ? "border-[#b8974f] bg-[#b8974f] text-[#faf7f0]" : "border-[#b8974f]/70 bg-[#faf7f0] text-[#1b2945]"
+      }`}
+    >
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center">{children}</span>
+      <span
+        className={`whitespace-nowrap text-sm font-semibold tracking-[0.05em] transition-all duration-300 ease-out ${textPad} ${
+          expanded ? "max-w-[220px] opacity-100" : "max-w-0 opacity-0"
+        }`}
+      >
+        {text}
+      </span>
+    </a>
+  )
+}
+
+function ContactIcons({ person, align = "left" }: { person: Person; align?: "left" | "right" }) {
+  const itemAlign = align === "left" ? "items-start" : "items-end"
+  // Keep the vertical connectors/dot centered under the fixed 48px icon on either side.
+  const lineOffset = align === "left" ? "ml-6" : "mr-6"
+  const dotOffset = align === "left" ? "ml-[21px]" : "mr-[21px]"
+  return (
+    <div className={`flex flex-col ${itemAlign}`}>
+      <ExpandingContact
         href={`tel:+48${person.phone}`}
-        aria-label={`Zadzwoń: ${person.phoneDisplay}`}
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-[#b8974f]/70 bg-[#faf7f0] text-[#1b2945] transition-colors hover:bg-[#b8974f] hover:text-[#faf7f0]"
+        label={`Zadzwoń: ${person.phoneDisplay}`}
+        text={person.phoneDisplay}
+        align={align}
       >
         <PhoneIcon />
-      </a>
-      <span aria-hidden="true" className="h-7 w-px border-l border-dotted border-[#b8974f]/70" />
-      <a
+      </ExpandingContact>
+      <span aria-hidden="true" className={`${lineOffset} h-7 w-px border-l border-dotted border-[#b8974f]/70`} />
+      <ExpandingContact
         href={`mailto:${person.email}`}
-        aria-label={`Napisz email: ${person.email}`}
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-[#b8974f]/70 bg-[#faf7f0] text-[#1b2945] transition-colors hover:bg-[#b8974f] hover:text-[#faf7f0]"
+        label={`Napisz email: ${person.email}`}
+        text={person.email}
+        align={align}
       >
         <MailIcon />
-      </a>
-      <span aria-hidden="true" className="h-5 w-px border-l border-dotted border-[#b8974f]/70" />
-      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[#b8974f]/70" />
+      </ExpandingContact>
+      <span aria-hidden="true" className={`${lineOffset} h-5 w-px border-l border-dotted border-[#b8974f]/70`} />
+      <span aria-hidden="true" className={`${dotOffset} h-1.5 w-1.5 rounded-full bg-[#b8974f]/70`} />
     </div>
   )
 }
@@ -249,10 +310,10 @@ export function AboutSection() {
         </div>
 
         <div className="absolute left-[5.5%] top-[68%]">
-          <ContactIcons person={k} />
+          <ContactIcons person={k} align="left" />
         </div>
         <div className="absolute right-[5.5%] top-[68%]">
-          <ContactIcons person={a} />
+          <ContactIcons person={a} align="right" />
         </div>
 
         <div className="absolute left-1/2 top-[68%] w-[330px] -translate-x-1/2">
