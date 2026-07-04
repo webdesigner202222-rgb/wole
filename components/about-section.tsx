@@ -8,7 +8,7 @@ const PEOPLE = {
     email: "krzysztof.benek@wiktoroli.com",
     phone: "723609936",
     phoneDisplay: "723 609 936",
-    img: "/images/krzysztof.png",
+    img: "/images/man.png",
   },
   angelika: {
     firstName: "ANGELIKA",
@@ -17,7 +17,7 @@ const PEOPLE = {
     email: "angelika.papla@wiktoroli.com",
     phone: "516423096",
     phoneDisplay: "516 423 096",
-    img: "/images/angelika.png",
+    img: "/images/woman.png",
   },
 } as const
 
