@@ -148,60 +148,96 @@
     position: relative;
     border-radius: 40px;
     overflow: hidden;
-    border: none;
-    color: #1a1a1a;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
-    background: rgba(212, 175, 110, 0.35);
+    border: 1.5px solid transparent;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+    background: rgba(90, 65, 20, 0.5);
+    backdrop-filter: blur(8px);
+    transition: border-color 0.25s ease;
   }
 
-  .hero-btn-consult::before {
-    content: '';
+  .hero-btn-consult:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .hero-btn-blob {
     position: absolute;
-    inset: 0;
     z-index: 0;
-    background-image: url('https://res.cloudinary.com/n8ir6lrb/image/upload/v1783101844/hero_section_bg_x2qs0n.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.55;
-    filter: brightness(1.15);
-    transition: opacity 0.5s ease, filter 0.5s ease;
+    width: 120px;
+    height: 120px;
+    border-radius: 9999px;
+    filter: blur(22px);
+    opacity: 0.85;
+    pointer-events: none;
   }
 
-  .hero-btn-consult::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: rgba(212, 175, 110, 0.6);
-    backdrop-filter: blur(6px);
-    transition: background 0.5s ease;
+  .hero-btn-blob-1 {
+    background: #e9c778;
+    top: -40px;
+    left: -20px;
+    animation: hero-blob-1 9s ease-in-out infinite;
   }
 
-  .hero-btn-consult > span {
+  .hero-btn-blob-2 {
+    background: #c9963f;
+    bottom: -50px;
+    left: 40%;
+    animation: hero-blob-2 8s ease-in-out infinite;
+  }
+
+  .hero-btn-blob-3 {
+    background: #a97d34;
+    top: -30px;
+    right: -20px;
+    animation: hero-blob-3 10s ease-in-out infinite;
+  }
+
+  .hero-btn-label {
     position: relative;
     z-index: 2;
   }
 
-  .hero-btn-consult:hover::before {
-    opacity: 0.7;
-    filter: brightness(1.25);
+  @keyframes hero-blob-1 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(70px, 30px) scale(1.25);
+    }
   }
 
-  .hero-btn-consult:hover::after {
-    background: rgba(212, 175, 110, 0.72);
+  @keyframes hero-blob-2 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1.1);
+    }
+    50% {
+      transform: translate(-50px, -35px) scale(0.85);
+    }
+  }
+
+  @keyframes hero-blob-3 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(0.95);
+    }
+    50% {
+      transform: translate(-60px, 40px) scale(1.2);
+    }
   }
 
   /* Right button - "Poznaj ofertę" */
   .hero-btn-offer {
     background: white;
     color: black;
-    border: 2.5px solid rgba(166, 124, 42, 0.95);
+    border: 2px solid transparent;
     border-radius: 40px;
     transition: transform 0.25s ease, border-color 0.25s ease;
   }
 
   .hero-btn-offer:hover {
     transform: scale(1.045);
-    border-color: rgba(140, 102, 28, 1);
+    border-color: rgba(184, 151, 79, 0.75);
   }
 }

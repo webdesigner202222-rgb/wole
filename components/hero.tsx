@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden py-28 md:py-40 lg:min-h-screen">
+    <section className="relative flex h-[70vh] min-h-[560px] w-full items-center justify-center overflow-hidden py-20 md:py-24">
       {/* Video background */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -17,7 +17,7 @@ export function Hero() {
       </video>
 
       {/* Light scrim to keep the section bright and text black */}
-      <div className="absolute inset-0 bg-background/45" />
+      <div className="absolute inset-0 bg-background/22" />
 
       {/* Content */}
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
@@ -33,7 +33,10 @@ export function Hero() {
         </p>
         <div className="mt-12 flex flex-col items-center gap-3 sm:flex-row">
           <a href="#kontakt" className="hero-btn hero-btn-consult">
-            <span>Umów konsultację</span>
+            <span className="hero-btn-blob hero-btn-blob-1" aria-hidden="true" />
+            <span className="hero-btn-blob hero-btn-blob-2" aria-hidden="true" />
+            <span className="hero-btn-blob hero-btn-blob-3" aria-hidden="true" />
+            <span className="hero-btn-label">Umów konsultację</span>
           </a>
           <a href="#kredyty-firmowe" className="hero-btn hero-btn-offer">
             Poznaj ofertę
