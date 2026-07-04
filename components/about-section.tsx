@@ -61,6 +61,23 @@ function MailIcon() {
   )
 }
 
+function CloseIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      <path d="M18 6 6 18M6 6l12 12" />
+    </svg>
+  )
+}
+
 function UsersIcon() {
   return (
     <svg
@@ -99,37 +116,51 @@ function ExpandingContact({
   // Left-side badges expand to the right (icon first), right-side badges expand
   // to the left (icon last) so the revealed text always grows toward the center.
   const rowDir = align === "left" ? "flex-row" : "flex-row-reverse"
-  const textPad = align === "left" ? "pl-1 pr-4" : "pr-1 pl-4"
 
   return (
-    <a
-      href={href}
-      aria-label={label}
+    <div
       onMouseEnter={() => setExpanded(true)}
       onMouseLeave={() => setExpanded(false)}
-      onFocus={() => setExpanded(true)}
-      onBlur={() => setExpanded(false)}
-      onClick={(e) => {
-        // On touch devices there is no hover: the first tap reveals the text,
-        // the second tap (already expanded) triggers the call / email.
-        if (!expanded) {
-          e.preventDefault()
-          setExpanded(true)
-        }
-      }}
-      className={`flex h-12 items-center overflow-hidden rounded-full border transition-colors duration-300 ease-out focus-visible:outline-none ${rowDir} ${
-        expanded ? "border-[#b8974f] bg-[#b8974f] text-[#faf7f0]" : "border-[#b8974f]/70 bg-[#faf7f0] text-[#1b2945]"
+      className={`flex h-12 items-center overflow-hidden rounded-full border bg-[#faf7f0] transition-colors duration-300 ease-out ${rowDir} ${
+        expanded ? "border-[#b8974f] shadow-[0_6px_18px_-10px_rgba(26,35,64,0.35)]" : "border-[#b8974f]/70"
       }`}
     >
-      <span className="flex h-12 w-12 shrink-0 items-center justify-center">{children}</span>
-      <span
-        className={`whitespace-nowrap text-sm font-semibold tracking-[0.05em] transition-all duration-300 ease-out ${textPad} ${
-          expanded ? "max-w-[220px] opacity-100" : "max-w-0 opacity-0"
+      <a
+        href={href}
+        aria-label={label}
+        onFocus={() => setExpanded(true)}
+        onBlur={() => setExpanded(false)}
+        onClick={(e) => {
+          // On touch devices there is no hover: the first tap reveals the text,
+          // the second tap (already expanded) triggers the call / email.
+          if (!expanded) {
+            e.preventDefault()
+            setExpanded(true)
+          }
+        }}
+        className={`flex h-12 items-center focus-visible:outline-none ${rowDir}`}
+      >
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center text-[#b8974f]">{children}</span>
+        <span
+          className={`whitespace-nowrap text-sm font-semibold tracking-[0.05em] text-[#1b2945] transition-all duration-300 ease-out ${
+            expanded ? "max-w-[240px] px-2 opacity-100" : "max-w-0 px-0 opacity-0"
+          }`}
+        >
+          {text}
+        </span>
+      </a>
+      <button
+        type="button"
+        aria-label="Zamknij"
+        tabIndex={expanded ? 0 : -1}
+        onClick={() => setExpanded(false)}
+        className={`flex h-12 shrink-0 items-center justify-center text-[#9aa0ac] transition-all duration-300 ease-out hover:text-[#1b2945] focus-visible:outline-none ${
+          expanded ? "w-9 opacity-100" : "pointer-events-none w-0 opacity-0"
         }`}
       >
-        {text}
-      </span>
-    </a>
+        <CloseIcon />
+      </button>
+    </div>
   )
 }
 
