@@ -151,6 +151,7 @@
     border: none;
     color: #1a1a1a;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+    background: rgba(212, 175, 110, 0.35);
   }
 
   .hero-btn-consult::before {
@@ -161,8 +162,8 @@
     background-image: url('https://res.cloudinary.com/n8ir6lrb/image/upload/v1783101844/hero_section_bg_x2qs0n.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.75;
-    filter: brightness(0.85);
+    opacity: 0.55;
+    filter: brightness(1.15);
     transition: opacity 0.5s ease, filter 0.5s ease;
   }
 
@@ -171,7 +172,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: rgba(212, 175, 110, 0.35);
+    background: rgba(212, 175, 110, 0.6);
     backdrop-filter: blur(6px);
     transition: background 0.5s ease;
   }
@@ -182,12 +183,12 @@
   }
 
   .hero-btn-consult:hover::before {
-    opacity: 0.9;
-    filter: brightness(1.05);
+    opacity: 0.7;
+    filter: brightness(1.25);
   }
 
   .hero-btn-consult:hover::after {
-    background: rgba(212, 175, 110, 0.5);
+    background: rgba(212, 175, 110, 0.72);
   }
 
   /* Right button - "Poznaj ofertę" */
