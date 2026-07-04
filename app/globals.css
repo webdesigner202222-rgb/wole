@@ -195,7 +195,7 @@
   .hero-btn-offer {
     background: white;
     color: black;
-    border: 2.5px solid rgba(166, 124, 42, 0.95);
+    border: 2.5px solid transparent;
     border-radius: 40px;
     transition: transform 0.25s ease, border-color 0.25s ease;
   }
