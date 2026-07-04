@@ -194,13 +194,13 @@
   .hero-btn-offer {
     background: white;
     color: black;
-    border: 1.5px solid rgba(184, 151, 79, 0.35);
+    border: 2.5px solid rgba(166, 124, 42, 0.95);
     border-radius: 40px;
     transition: transform 0.25s ease, border-color 0.25s ease;
   }
 
   .hero-btn-offer:hover {
     transform: scale(1.045);
-    border-color: rgba(184, 151, 79, 0.9);
+    border-color: rgba(140, 102, 28, 1);
   }
 }

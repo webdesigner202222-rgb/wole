@@ -128,10 +128,10 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b-2 border-[#b8974f]/70 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b-4 border-[#b8974f] bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* Logo — far left */}
-        <a href="#" className="flex shrink-0 flex-col items-start" aria-label="Strona główna">
+        <a href="#" className="flex shrink-0 flex-col items-center" aria-label="Strona główna">
           <Image
             src="/logo.png"
             alt="Logo firmy"
@@ -140,7 +140,7 @@ export function SiteHeader() {
             priority
             className="h-11 w-auto"
           />
-          <span className="mt-1 text-[0.625rem] font-medium uppercase tracking-[0.25em] text-[#b8974f]/80">
+          <span className="mt-1 w-full text-center text-[0.625rem] font-medium uppercase tracking-[0.25em] text-foreground">
             Broker kredytowy
           </span>
         </a>

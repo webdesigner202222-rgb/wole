@@ -22,12 +22,12 @@ export function Hero() {
       {/* Content */}
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
         <span className="mb-8 text-xs font-medium uppercase tracking-[0.25em] text-foreground/70">
-          Broker kredytowy
+          Doradca kredytowy
         </span>
         <h1 className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           Kredyt, na jaki naprawdę Cię stać
         </h1>
-        <p className="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-foreground/70 sm:text-lg md:text-xl">
+        <p className="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-foreground/90 sm:text-lg md:text-xl">
           Firmowy, hipoteczny czy gotówkowy - znajdziemy najlepszą ofertę wśród
           banków. Doradzamy też w inwestycjach i nieruchomościach.
         </p>
