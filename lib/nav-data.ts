@@ -12,7 +12,7 @@ export type NavItem = {
 export const navItems: NavItem[] = [
   {
     label: "Kredyty firmowe",
-    href: "#kredyty-firmowe",
+    href: "/kredyty-firmowe",
     columns: [
       { label: "Kredyty obrotowe" },
       { label: "Kredyty inwestycyjne" },
@@ -25,12 +25,12 @@ export const navItems: NavItem[] = [
   },
   {
     label: "Kredyty osobiste",
-    href: "#kredyty-osobiste",
+    href: "/kredyty-osobiste",
     columns: [{ label: "Kredyty gotówkowe" }, { label: "Kredyty hipoteczne" }],
   },
   {
     label: "Inwestycje i nieruchomości",
-    href: "#inwestycje",
+    href: "/inwestycje-i-nieruchomosci",
     columns: [
       { label: "Projekty farm fotowoltaicznych" },
       { label: "Projekty fotowoltaiczne i magazynów energii" },
@@ -51,6 +51,6 @@ export const navItems: NavItem[] = [
       { label: "Tworzenie biznesplanów" },
     ],
   },
-  { label: "O nas", href: "#o-nas" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "O nas", href: "/#o-nas" },
+  { label: "Kontakt", href: "/#kontakt" },
 ]

@@ -56,6 +56,8 @@ type Offer = {
   title: string
   description: string
   img: string
+  /** Route to the dedicated category page */
+  href: string
   /** Card-specific decoration layout around the illustration */
   deco: React.ReactNode
 }
@@ -67,6 +69,7 @@ const OFFERS: Offer[] = [
     description:
       "Finansowanie dopasowane do potrzeb Twojej firmy. Kredyty obrotowe, inwestycyjne i leasing \u2013 szybko, elastycznie, na jasnych zasadach.",
     img: "/images/kredyty-firmowe.svg",
+    href: "/kredyty-firmowe",
     deco: (
       <>
         <DashedCircle className="absolute left-1/2 top-1/2 h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2" />
@@ -89,6 +92,7 @@ const OFFERS: Offer[] = [
     description:
       "Proste i przejrzyste kredyty gotówkowe na dowolny cel. Decyzja nawet w 24h, minimum formalności i wsparcie na każdym etapie.",
     img: "/images/kredyty-osobiste.svg",
+    href: "/kredyty-osobiste",
     deco: (
       <>
         <DashedCircle className="absolute left-1/2 top-1/2 h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2" />
@@ -112,6 +116,7 @@ const OFFERS: Offer[] = [
     description:
       "Finansujemy rozwój i spełniamy marzenia o własnym miejscu. Kredyty hipoteczne, inwestycyjne i wsparcie w zakresie nieruchomości.",
     img: "/images/inwestycje-nieruchomosci.svg",
+    href: "/inwestycje-i-nieruchomosci",
     deco: (
       <>
         <DashedCircle className="absolute left-1/2 top-1/2 h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2" />
@@ -142,7 +147,7 @@ function OfferCard({ offer }: { offer: Offer }) {
       <span aria-hidden="true" className="mt-3 h-0.5 w-9 bg-[#b8974f]" />
       <p className="mt-5 text-center text-sm leading-relaxed text-[#6b6b6b]">{offer.description}</p>
       <a
-        href="#kontakt"
+        href={offer.href}
         className="group mt-auto flex items-center gap-2 pt-7 text-sm font-bold text-[#b8974f]"
       >
         Zobacz ofertę
