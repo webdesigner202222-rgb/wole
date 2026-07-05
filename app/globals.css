@@ -240,4 +240,16 @@
     transform: scale(1.045);
     border-color: rgba(184, 151, 79, 0.75);
   }
+
+  /* "Jak to działa" - card content crossfade */
+  @keyframes hiw-fade {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

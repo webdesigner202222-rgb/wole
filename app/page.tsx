@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { StatsBar } from "@/components/stats-bar"
 import { OfferSection } from "@/components/offer-section"
 import { WhyUsSection } from "@/components/why-us-section"
+import { HowItWorksSection } from "@/components/how-it-works-section"
 import { AboutSection } from "@/components/about-section"
 
 export default function Page() {
@@ -13,6 +14,7 @@ export default function Page() {
       <StatsBar />
       <OfferSection />
       <WhyUsSection />
+      <HowItWorksSection />
       <AboutSection />
     </main>
   )
