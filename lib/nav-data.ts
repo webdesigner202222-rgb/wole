@@ -1,36 +1,38 @@
 export type NavSubItem = {
   label: string
+  href?: string
   children?: string[]
 }
 
 export type NavItem = {
   label: string
-  href: string
+  /** Direct link. Omit for dropdown-only items (parent label is not clickable). */
+  href?: string
   columns?: NavSubItem[]
 }
 
 export const navItems: NavItem[] = [
   {
     label: "Kredyty firmowe",
-    href: "/kredyty-firmowe",
     columns: [
-      { label: "Kredyty obrotowe" },
-      { label: "Kredyty inwestycyjne" },
-      { label: "Kredyty deweloperskie" },
-      { label: "Kredyty w rachunku bieżącym" },
-      { label: "Faktoring" },
-      { label: "Leasing" },
-      { label: "Fundusze pożyczkowe" },
+      { label: "Kredyty obrotowe", href: "/kredyty-firmowe/obrotowy" },
+      { label: "Kredyty inwestycyjne", href: "/kredyty-firmowe/inwestycyjny" },
+      { label: "Kredyty deweloperskie", href: "/kredyty-firmowe/deweloperski" },
+      { label: "Kredyty w rachunku bieżącym", href: "/kredyty-firmowe/w-rachunku-biezacym" },
+      { label: "Faktoring", href: "/kredyty-firmowe/faktoring" },
+      { label: "Leasing", href: "/kredyty-firmowe/leasing" },
+      { label: "Fundusze pożyczkowe", href: "/kredyty-firmowe/fundusze-pozyczkowe" },
     ],
   },
   {
     label: "Kredyty osobiste",
-    href: "/kredyty-osobiste",
-    columns: [{ label: "Kredyty gotówkowe" }, { label: "Kredyty hipoteczne" }],
+    columns: [
+      { label: "Kredyty gotówkowe", href: "/kredyty-osobiste/gotowkowy" },
+      { label: "Kredyty hipoteczne", href: "/kredyty-osobiste/hipoteczny" },
+    ],
   },
   {
     label: "Inwestycje i nieruchomości",
-    href: "/inwestycje-i-nieruchomosci",
     columns: [
       { label: "Projekty farm fotowoltaicznych" },
       { label: "Projekty fotowoltaiczne i magazynów energii" },

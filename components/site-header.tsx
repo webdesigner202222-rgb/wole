@@ -9,7 +9,7 @@ function DesktopItem({ item }: { item: NavItem }) {
   if (!item.columns) {
     return (
       <a
-        href={item.href}
+        href={item.href ?? "#"}
         className="group relative py-2 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors hover:text-foreground"
       >
         {item.label}
@@ -21,7 +21,8 @@ function DesktopItem({ item }: { item: NavItem }) {
   return (
     <div className="group relative">
       <button
-        className="flex items-center gap-1 py-2 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors group-hover:text-foreground"
+        type="button"
+        className="flex cursor-default items-center gap-1 py-2 text-xs font-medium uppercase tracking-[0.14em] text-foreground transition-colors group-hover:text-foreground"
         aria-haspopup="true"
       >
         <span className="relative">
@@ -43,23 +44,20 @@ function DesktopItem({ item }: { item: NavItem }) {
                     <ul className="mt-1.5 flex flex-col gap-1 border-l border-border pl-3">
                       {col.children.map((child) => (
                         <li key={child}>
-                          <a
-                            href={item.href}
-                            className="block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                          >
-                            {child}
-                          </a>
+                          <span className="block py-1 text-sm text-muted-foreground">{child}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                ) : (
+                ) : col.href ? (
                   <a
-                    href={item.href}
+                    href={col.href}
                     className="block rounded-md px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
                   >
                     {col.label}
                   </a>
+                ) : (
+                  <span className="block rounded-md px-3 py-2 text-sm text-foreground/80">{col.label}</span>
                 )}
               </li>
             ))}
@@ -76,7 +74,7 @@ function MobileItem({ item }: { item: NavItem }) {
   if (!item.columns) {
     return (
       <a
-        href={item.href}
+        href={item.href ?? "#"}
         className="block border-b border-border py-3 text-xs font-medium uppercase tracking-[0.14em] text-foreground"
       >
         {item.label}
@@ -104,17 +102,17 @@ function MobileItem({ item }: { item: NavItem }) {
                   <ul className="mt-1 flex flex-col gap-1 border-l border-border pl-3">
                     {col.children.map((child) => (
                       <li key={child}>
-                        <a href={item.href} className="block py-1 text-sm text-muted-foreground">
-                          {child}
-                        </a>
+                        <span className="block py-1 text-sm text-muted-foreground">{child}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              ) : (
-                <a href={item.href} className="block py-1.5 text-sm text-muted-foreground">
+              ) : col.href ? (
+                <a href={col.href} className="block py-1.5 text-sm text-muted-foreground">
                   {col.label}
                 </a>
+              ) : (
+                <span className="block py-1.5 text-sm text-muted-foreground">{col.label}</span>
               )}
             </li>
           ))}
