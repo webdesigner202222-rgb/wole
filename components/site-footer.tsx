@@ -214,7 +214,7 @@ export function SiteFooter() {
       <BackToTop />
 
       {/* Dot grids */}
-      <DotGrid className="absolute left-6 top-1/2 hidden -translate-y-1/2 lg:grid" cols={5} rows={4} />
+      <DotGrid className="absolute left-4 top-16 hidden lg:grid" cols={4} rows={4} />
       <DotGrid className="absolute right-10 top-1/3 hidden lg:grid" cols={6} rows={4} />
 
       <div className="relative mx-auto max-w-[1720px] px-6 py-16 md:px-12 lg:py-20">
