@@ -5,6 +5,7 @@ import { OfferSection } from "@/components/offer-section"
 import { WhyUsSection } from "@/components/why-us-section"
 import { HowItWorksSection } from "@/components/how-it-works-section"
 import { AboutSection } from "@/components/about-section"
+import { SiteFooter } from "@/components/site-footer"
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <WhyUsSection />
       <HowItWorksSection />
       <AboutSection />
+      <SiteFooter />
     </main>
   )
 }
