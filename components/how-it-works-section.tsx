@@ -55,10 +55,21 @@ const STEPS: Step[] = [
 
 function DottedConnector() {
   return (
-    <span
-      aria-hidden="true"
-      className="mx-2 mt-6 hidden h-px flex-1 border-t border-dotted border-[#b8974f]/70 sm:block md:mx-4"
-    />
+    <span aria-hidden="true" className="mx-2 mt-6 hidden flex-1 sm:block md:mx-4">
+      <svg className="h-[3px] w-full" preserveAspectRatio="none" aria-hidden="true">
+        <line
+          x1="0"
+          y1="1.5"
+          x2="100%"
+          y2="1.5"
+          stroke="#b8974f"
+          strokeWidth="2"
+          strokeDasharray="2 7"
+          strokeLinecap="round"
+          opacity="0.75"
+        />
+      </svg>
+    </span>
   )
 }
 
@@ -83,10 +94,28 @@ export function HowItWorksSection() {
         aria-hidden="true"
         className="absolute right-16 top-24 h-5 w-5 rounded-full border border-[#b8974f]/70"
       />
-      <span
+      {/* Left-of-card decoration cluster: dotted arc fragment, triangle, dot */}
+      <div aria-hidden="true" className="absolute -left-16 top-[55%] hidden lg:block">
+        <svg viewBox="0 0 200 200" fill="none" className="h-44 w-44">
+          <path
+            d="M 190 40 A 90 90 0 0 0 60 190"
+            stroke="#b8974f"
+            strokeWidth="1.5"
+            strokeDasharray="1.5 9"
+            strokeLinecap="round"
+            opacity="0.6"
+          />
+        </svg>
+        <span className="absolute bottom-2 right-6 h-2 w-2 rounded-full bg-[#b8974f]/80" />
+      </div>
+      <svg
+        viewBox="0 0 14 12"
+        fill="none"
         aria-hidden="true"
-        className="absolute bottom-24 left-14 h-3 w-3 rotate-12 border border-[#b8974f]/60 [clip-path:polygon(50%_0,0_100%,100%_100%)]"
-      />
+        className="absolute bottom-24 left-14 h-3.5 w-4 rotate-[160deg]"
+      >
+        <path d="M7 1 L13 11 L1 11 Z" stroke="#b8974f" strokeWidth="1.2" opacity="0.7" />
+      </svg>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Heading */}
@@ -162,31 +191,50 @@ export function HowItWorksSection() {
             </div>
 
             {/* Illustration column */}
-            <div className="relative mx-auto flex w-full max-w-sm items-center justify-center py-4">
+            <div className="relative mx-auto flex h-80 w-80 shrink-0 items-center justify-center md:h-96 md:w-96">
               {/* Soft cream cushion */}
               <span
                 aria-hidden="true"
-                className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f5efe4] blur-sm md:h-72 md:w-72"
+                className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f5efe4] md:h-64 md:w-64"
               />
-              {/* Dotted arc */}
-              <span
+              {/* Partial dotted arc around the illustration */}
+              <svg
+                viewBox="0 0 400 400"
+                fill="none"
                 aria-hidden="true"
-                className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dotted border-[#b8974f]/60 [clip-path:polygon(0_0,100%_0,100%_45%,0_45%)]"
-              />
-              {/* Decorations */}
-              <span aria-hidden="true" className="absolute -left-2 top-2 h-4 w-4 rounded-full border border-[#b8974f]/70" />
-              <span
+                className="absolute inset-0 h-full w-full"
+              >
+                {/* arc from top-right, counter-clockwise through the left, to bottom-right */}
+                <path
+                  d="M 327 73 A 180 180 0 1 0 327 327"
+                  stroke="#b8974f"
+                  strokeWidth="1.5"
+                  strokeDasharray="1.5 9"
+                  strokeLinecap="round"
+                  opacity="0.75"
+                />
+              </svg>
+              {/* Filled gold dots pinned to the arc edges */}
+              <span aria-hidden="true" className="absolute left-1/2 top-[2px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-[#b8974f]" />
+              <span aria-hidden="true" className="absolute bottom-[16%] right-[6%] h-2 w-2 rounded-full bg-[#b8974f]" />
+              <span aria-hidden="true" className="absolute left-[2%] top-[62%] h-1.5 w-1.5 rounded-full bg-[#b8974f]/80" />
+              {/* Outline circle - top left area */}
+              <span aria-hidden="true" className="absolute left-[6%] top-[10%] h-4 w-4 rounded-full border border-[#b8974f]/80" />
+              {/* Outline triangle - bottom area */}
+              <svg
+                viewBox="0 0 14 12"
+                fill="none"
                 aria-hidden="true"
-                className="absolute -bottom-1 left-6 h-3 w-3 border border-[#b8974f]/70 [clip-path:polygon(50%_0,0_100%,100%_100%)]"
-              />
-              <span aria-hidden="true" className="absolute right-2 top-0 h-2 w-2 rounded-full bg-[#b8974f]" />
-              <span aria-hidden="true" className="absolute -right-1 bottom-8 h-2 w-2 rounded-full bg-[#b8974f]/70" />
+                className="absolute bottom-[6%] left-[18%] h-3 w-3.5 -rotate-12"
+              >
+                <path d="M7 1 L13 11 L1 11 Z" stroke="#b8974f" strokeWidth="1.2" opacity="0.8" />
+              </svg>
               <Image
                 src={step.img || "/placeholder.svg"}
                 alt={`Ilustracja: ${step.title}`}
                 width={387}
                 height={448}
-                className="relative h-64 w-auto md:h-72"
+                className="relative h-56 w-auto md:h-64"
               />
             </div>
           </div>
