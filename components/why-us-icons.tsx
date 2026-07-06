@@ -1,3 +1,43 @@
+export function PersonIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 48 48"
+      className={className}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="24" cy="15" r="7.5" />
+      <path d="M9 40c1.8-8.5 7.5-12.5 15-12.5S37.2 31.5 39 40" />
+    </svg>
+  )
+}
+
+export function SlidersIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 48 48"
+      className={className}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M14 6v10M14 24v18" />
+      <circle cx="14" cy="20" r="4" />
+      <path d="M34 6v14M34 32v10" />
+      <circle cx="34" cy="28" r="4" />
+    </svg>
+  )
+}
+
 export function CarIcon({ className }: { className?: string }) {
   return (
     <svg
