@@ -295,7 +295,7 @@ export function CreditProductTemplate({ data }: { data: CreditProductData }) {
           </div>
 
           {/* Right column - photo with dotted circle decorations */}
-          <div className="relative mx-auto flex h-[380px] w-full max-w-md items-end justify-center lg:h-[460px]">
+          <div className="relative mx-auto flex h-[380px] w-full max-w-md items-end justify-center self-end lg:h-[460px]">
             {/* Big dotted circle around the person */}
             <DottedArc
               className="absolute left-1/2 top-1/2 h-[105%] w-[105%] -translate-x-1/2 -translate-y-1/2"
