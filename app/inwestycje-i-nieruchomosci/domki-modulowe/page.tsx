@@ -1,57 +1,82 @@
 import type { Metadata } from "next"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { CategoryLandingTemplate, type CategoryLandingData } from "@/components/category-landing-template"
-import { PersonIcon } from "@/components/why-us-icons"
+import { ProductShowcasePage, type ProductShowcaseData } from "@/components/product-showcase-page"
 
 export const metadata: Metadata = {
   title: "Domki modułowe | Broker Kredytowy",
   description:
-    "Domy modułowe w stanie deweloperskim oraz pod klucz. Nowoczesne, szybkie w realizacji rozwiązania mieszkaniowe wraz z finansowaniem.",
+    "Nowoczesne budownictwo modułowe: stan deweloperski, pod klucz, obiekty handlowo-usługowe oraz projektowanie hal, biur i osiedli.",
 }
 
-const data: CategoryLandingData = {
+const data: ProductShowcaseData = {
   breadcrumbs: [
     { label: "Strona główna", href: "/" },
     { label: "Inwestycje i nieruchomości", href: "/inwestycje-i-nieruchomosci" },
     { label: "Domki modułowe", href: "/inwestycje-i-nieruchomosci/domki-modulowe" },
   ],
-  category_label: "DOMKI MODUŁOWE",
-  headline: "Nowoczesne domy\nmodułowe",
-  description:
-    "Domy modułowe w stanie deweloperskim oraz pod klucz. Szybka realizacja i finansowanie dopasowane do Twoich potrzeb.",
-  products: [
+  category_label: "INWESTYCJE I NIERUCHOMOŚCI",
+  headline: "Domki modułowe",
+  intro:
+    "Nowoczesne budownictwo modułowe dopasowane do Twoich potrzeb - od prostych konstrukcji po kompletne domy pod klucz. Poznaj nasze rozwiązania poniżej.",
+  sections: [
     {
-      icon_svg: "/images/icons/inwestycje-domki-stan-deweloperski.svg",
-      name: "Domki modułowe - stan deweloperski",
-      desc: "Solidna konstrukcja gotowa do wykończenia według własnych potrzeb.",
-      url: "/inwestycje-i-nieruchomosci/domki-modulowe/stan-deweloperski",
+      id: "stan-deweloperski",
+      heading: "Stan deweloperski",
+      body: "Solidna, w pełni zamknięta konstrukcja gotowa do samodzielnego wykończenia według własnych potrzeb i budżetu. Idealne rozwiązanie dla osób, które chcą mieć pełną kontrolę nad wykończeniem wnętrza.",
+      imageAlt: "Domek modułowy w stanie deweloperskim",
     },
     {
-      icon_svg: "/images/icons/inwestycje-domki-pod-klucz.svg",
-      name: "Domki modułowe - pod klucz",
-      desc: "Kompletny dom gotowy do zamieszkania, wraz z wyposażeniem.",
-      url: "/inwestycje-i-nieruchomosci/domki-modulowe/pod-klucz",
+      id: "pod-klucz",
+      heading: "Pod klucz",
+      body: "Kompletny dom gotowy do zamieszkania - wraz z pełnym wyposażeniem wnętrz. Otrzymujesz gotowy produkt, do którego możesz się wprowadzić od razu po odbiorze.",
+      imageAlt: "Wykończony domek modułowy pod klucz",
+    },
+    {
+      id: "obiekty-handlowo-uslugowe",
+      heading: "Obiekty handlowo-usługowe",
+      body: "Modułowe przestrzenie handlowe i usługowe - szybka realizacja dla biznesu, który potrzebuje funkcjonalnej powierzchni bez długiego czasu budowy.",
+      facts: [
+        "Domki modułowe do 35m² - bez konieczności uzyskania pozwolenia na budowę",
+        "Montaż do miesiąca po ustaleniu szczegółów z ekspertem",
+        "Możliwość rozbudowy do dowolnej wielkości: 100m², 200m², 300m² i więcej",
+      ],
+      imageAlt: "Modułowy obiekt handlowo-usługowy",
+    },
+    {
+      id: "projektowanie",
+      heading: "Projektowanie",
+      body: "Projektujemy obiekty modułowe dopasowane do specyfiki Twojej branży i potrzeb.",
+      imageAlt: "Projektowanie obiektów modułowych",
+      subsections: [
+        {
+          id: "projektowanie-hale",
+          heading: "Hale",
+          body: "Projekty hal produkcyjnych i magazynowych, zaprojektowane pod kątem funkcjonalności i efektywności przestrzeni.",
+          imageAlt: "Projekt hali produkcyjnej",
+        },
+        {
+          id: "projektowanie-biura",
+          heading: "Biura",
+          body: "Nowoczesne przestrzenie biurowe zaprojektowane od podstaw, dopasowane do charakteru i skali Twojej firmy.",
+          imageAlt: "Projekt przestrzeni biurowej",
+        },
+        {
+          id: "projektowanie-osiedla",
+          heading: "Osiedla",
+          body: "Kompleksowe projekty osiedli mieszkaniowych i deweloperskich, od koncepcji po gotowy plan realizacji.",
+          imageAlt: "Projekt osiedla mieszkaniowego",
+        },
+      ],
     },
   ],
-  why_us_heading: "Dlaczego warto skorzystać z naszej oferty?",
-  why_us_points: [
-    { icon_svg: "/images/icons/why-us-mapa-polski.svg", label: "Zasięg ogólnopolski" },
-    { icon_svg: "/images/icons/why-us-kompleksowa-obsluga.svg", label: "Kompleksowa obsługa" },
-    { icon_node: <PersonIcon className="h-10 w-10" />, label: "Doświadczeni partnerzy" },
-    { icon_svg: "/images/icons/why-us-elastyczne-rozwiazania.svg", label: "Elastyczne rozwiązania" },
-  ],
-  cta_label: "POROZMAWIAJMY O TWOICH POTRZEBACH",
-  cta_headline: "Skontaktuj się z nami",
-  cta_desc: "Dobierzemy najlepsze rozwiązanie finansowe dopasowane do Ciebie.",
-  cta_phone: "+48 723 609 936",
 }
 
 export default function DomkiModulowePage() {
   return (
     <main className="min-h-screen bg-background">
       <SiteHeader />
-      <CategoryLandingTemplate data={data} />
+      <ProductShowcasePage data={data} />
       <SiteFooter />
     </main>
   )
