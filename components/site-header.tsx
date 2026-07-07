@@ -40,11 +40,16 @@ function DesktopItem({ item }: { item: NavItem }) {
               <li key={col.label}>
                 {col.children ? (
                   <div className="px-3 py-2">
-                    <p className="text-xs font-semibold uppercase tracking-[0.1em] text-foreground">{col.label}</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.1em] text-foreground">{col.label}</p>
                     <ul className="mt-1.5 flex flex-col gap-1 border-l border-border pl-3">
                       {col.children.map((child) => (
-                        <li key={child}>
-                          <span className="block py-1 text-sm text-muted-foreground">{child}</span>
+                        <li key={child.label}>
+                          <a
+                            href={child.href}
+                            className="block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            {child.label}
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -98,11 +103,13 @@ function MobileItem({ item }: { item: NavItem }) {
             <li key={col.label}>
               {col.children ? (
                 <div className="py-1">
-                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-foreground">{col.label}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.08em] text-foreground">{col.label}</p>
                   <ul className="mt-1 flex flex-col gap-1 border-l border-border pl-3">
                     {col.children.map((child) => (
-                      <li key={child}>
-                        <span className="block py-1 text-sm text-muted-foreground">{child}</span>
+                      <li key={child.label}>
+                        <a href={child.href} className="block py-1 text-sm text-muted-foreground">
+                          {child.label}
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -129,7 +136,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b-4 border-[#b8974f] bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* Logo — far left */}
-        <a href="#" className="flex shrink-0 flex-col items-center" aria-label="Strona główna">
+        <a href="/" className="flex shrink-0 flex-col items-center" aria-label="Strona główna">
           <Image
             src="/logo.png"
             alt="Logo firmy"

@@ -1,15 +1,15 @@
 import type { Metadata } from "next"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { ProductShowcasePage, type ProductShowcaseData } from "@/components/product-showcase-page"
+import { TabbedShowcaseTemplate, type TabbedShowcaseData } from "@/components/tabbed-showcase-template"
 
 export const metadata: Metadata = {
   title: "Domki modułowe | Broker Kredytowy",
   description:
-    "Nowoczesne budownictwo modułowe: stan deweloperski, pod klucz, obiekty handlowo-usługowe oraz projektowanie hal, biur i osiedli.",
+    "Nowoczesne budownictwo modułowe: stan deweloperski, wykończenie pod klucz oraz modułowe obiekty handlowo-usługowe.",
 }
 
-const data: ProductShowcaseData = {
+const data: TabbedShowcaseData = {
   breadcrumbs: [
     { label: "Strona główna", href: "/" },
     { label: "Inwestycje i nieruchomości", href: "/inwestycje-i-nieruchomosci" },
@@ -18,23 +18,35 @@ const data: ProductShowcaseData = {
   category_label: "INWESTYCJE I NIERUCHOMOŚCI",
   headline: "Domki modułowe",
   intro:
-    "Nowoczesne budownictwo modułowe dopasowane do Twoich potrzeb - od prostych konstrukcji po kompletne domy pod klucz. Poznaj nasze rozwiązania poniżej.",
-  sections: [
+    "Nowoczesne budownictwo modułowe dopasowane do Twoich potrzeb - od prostych konstrukcji po kompleksowe domy pod klucz.",
+  tabs: [
     {
       id: "stan-deweloperski",
+      tabLabel: "Stan deweloperski",
+      icon: "home",
       heading: "Stan deweloperski",
-      body: "Solidna, w pełni zamknięta konstrukcja gotowa do samodzielnego wykończenia według własnych potrzeb i budżetu. Idealne rozwiązanie dla osób, które chcą mieć pełną kontrolę nad wykończeniem wnętrza.",
+      body: "Solidna, w pełni zamknięta konstrukcja gotowa do samodzielnego wykończenia według własnych potrzeb i budżetu.",
+      facts: [
+        "Gotowa konstrukcja z zewnątrz - ściany, dach, okna, drzwi",
+        "Instalacje wewnętrzne - elektryka, hydraulika, ogrzewanie",
+        "Izolacja termiczna i akustyczna na najwyższym poziomie",
+        "Możliwość indywidualnego wykończenia wnętrza",
+      ],
       imageAlt: "Domek modułowy w stanie deweloperskim",
     },
     {
       id: "pod-klucz",
-      heading: "Pod klucz",
+      tabLabel: "Pod klucz",
+      icon: "key",
+      heading: "Stan wykończenia pod klucz",
       body: "Kompletny dom gotowy do zamieszkania - wraz z pełnym wyposażeniem wnętrz. Otrzymujesz gotowy produkt, do którego możesz się wprowadzić od razu po odbiorze.",
       imageAlt: "Wykończony domek modułowy pod klucz",
     },
     {
-      id: "obiekty-handlowo-uslugowe",
-      heading: "Obiekty handlowo-usługowe",
+      id: "obiekty-uslugowe",
+      tabLabel: "Obiekty usługowe",
+      icon: "building",
+      heading: "Obiekty modułowe handlowo-usługowe",
       body: "Modułowe przestrzenie handlowe i usługowe - szybka realizacja dla biznesu, który potrzebuje funkcjonalnej powierzchni bez długiego czasu budowy.",
       facts: [
         "Domki modułowe do 35m² - bez konieczności uzyskania pozwolenia na budowę",
@@ -43,32 +55,6 @@ const data: ProductShowcaseData = {
       ],
       imageAlt: "Modułowy obiekt handlowo-usługowy",
     },
-    {
-      id: "projektowanie",
-      heading: "Projektowanie",
-      body: "Projektujemy obiekty modułowe dopasowane do specyfiki Twojej branży i potrzeb.",
-      imageAlt: "Projektowanie obiektów modułowych",
-      subsections: [
-        {
-          id: "projektowanie-hale",
-          heading: "Hale",
-          body: "Projekty hal produkcyjnych i magazynowych, zaprojektowane pod kątem funkcjonalności i efektywności przestrzeni.",
-          imageAlt: "Projekt hali produkcyjnej",
-        },
-        {
-          id: "projektowanie-biura",
-          heading: "Biura",
-          body: "Nowoczesne przestrzenie biurowe zaprojektowane od podstaw, dopasowane do charakteru i skali Twojej firmy.",
-          imageAlt: "Projekt przestrzeni biurowej",
-        },
-        {
-          id: "projektowanie-osiedla",
-          heading: "Osiedla",
-          body: "Kompleksowe projekty osiedli mieszkaniowych i deweloperskich, od koncepcji po gotowy plan realizacji.",
-          imageAlt: "Projekt osiedla mieszkaniowego",
-        },
-      ],
-    },
   ],
 }
 
@@ -76,7 +62,7 @@ export default function DomkiModulowePage() {
   return (
     <main className="min-h-screen bg-background">
       <SiteHeader />
-      <ProductShowcasePage data={data} />
+      <TabbedShowcaseTemplate data={data} />
       <SiteFooter />
     </main>
   )

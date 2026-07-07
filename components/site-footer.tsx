@@ -48,9 +48,9 @@ function YoutubeIcon() {
 }
 
 const OFERTA = [
-  { label: "Kredyty firmowe", href: "#kredyty-firmowe" },
-  { label: "Kredyty osobiste", href: "#oferta" },
-  { label: "Inwestycje i nieruchomości", href: "#oferta" },
+  { label: "Kredyty firmowe", href: "/kredyty-firmowe" },
+  { label: "Kredyty osobiste", href: "/kredyty-osobiste" },
+  { label: "Inwestycje i nieruchomości", href: "/inwestycje-i-nieruchomosci" },
 ]
 
 const NOTY_PRAWNE = [
@@ -60,8 +60,62 @@ const NOTY_PRAWNE = [
 ]
 
 const KONTAKT = [
-  { label: "O firmie", href: "#o-nas" },
-  { label: "Kontakt", href: "#o-nas" },
+  { label: "O firmie", href: "/#o-nas" },
+  { label: "Kontakt", href: "/#kontakt" },
+]
+
+/* "Inwestycje i nieruchomości" column: bold non-clickable group headers
+   with indented, dash-prefixed clickable sub-links (deep links via ?tab=). */
+type InwestycjeGroup = {
+  header?: string
+  links: { label: string; href: string }[]
+}
+
+const INWESTYCJE_GROUPS: InwestycjeGroup[] = [
+  {
+    header: "Projekty farm fotowoltaicznych",
+    links: [
+      {
+        label: "Projekty fotowoltaiczne i magazynów energii",
+        href: "/inwestycje-i-nieruchomosci/fotowoltaika?tab=projekty-magazyny",
+      },
+      {
+        label: "Dystrybucja i sprzedaż magazynów energii",
+        href: "/inwestycje-i-nieruchomosci/fotowoltaika?tab=dystrybucja-sprzedaz",
+      },
+    ],
+  },
+  {
+    header: "Sprzedaż domków modułowych",
+    links: [
+      { label: "Stan deweloperski", href: "/inwestycje-i-nieruchomosci/domki-modulowe?tab=stan-deweloperski" },
+      {
+        label: "Stan wykończenia pod klucz (z wyposażeniem)",
+        href: "/inwestycje-i-nieruchomosci/domki-modulowe?tab=pod-klucz",
+      },
+      {
+        label: "Obiekty modułowe handlowo-usługowe",
+        href: "/inwestycje-i-nieruchomosci/domki-modulowe?tab=obiekty-uslugowe",
+      },
+    ],
+  },
+  {
+    header: "Projektowanie",
+    links: [
+      { label: "Hale", href: "/inwestycje-i-nieruchomosci/domki-modulowe/projektowanie?tab=hale" },
+      { label: "Biura", href: "/inwestycje-i-nieruchomosci/domki-modulowe/projektowanie?tab=biura" },
+      { label: "Osiedla", href: "/inwestycje-i-nieruchomosci/domki-modulowe/projektowanie?tab=osiedla" },
+    ],
+  },
+  {
+    links: [
+      {
+        label: "Sprzedaż nieruchomości komercyjnych / deweloperskich",
+        href: "/inwestycje-i-nieruchomosci/sprzedaz-nieruchomosci-komercyjnych",
+      },
+      { label: "Tworzenie biznesplanów", href: "/inwestycje-i-nieruchomosci/biznesplany" },
+    ],
+  },
 ]
 
 function LinkColumn({
@@ -88,6 +142,37 @@ function LinkColumn({
           </li>
         ))}
       </ul>
+    </div>
+  )
+}
+
+function GroupedLinkColumn({ title, groups }: { title: string; groups: InwestycjeGroup[] }) {
+  return (
+    <div>
+      <h3 className="text-sm font-bold tracking-[0.18em] text-[#1b2945]">{title}</h3>
+      <span aria-hidden="true" className="mt-4 block h-0.5 w-10 bg-[#b8974f]" />
+      <div className="mt-6 flex flex-col gap-5">
+        {groups.map((group, gi) => (
+          <div key={group.header ?? `group-${gi}`}>
+            {group.header && (
+              <p className="text-[13px] font-bold uppercase tracking-[0.08em] text-[#1b2945]">{group.header}</p>
+            )}
+            <ul className={`flex flex-col gap-1.5 ${group.header ? "mt-2 pl-3" : ""}`}>
+              {group.links.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="group flex items-start gap-2 text-sm text-[#4a5266] transition-colors hover:text-[#b8974f]"
+                  >
+                    <span aria-hidden="true" className="mt-2.5 h-px w-3 shrink-0 bg-[#b8974f]/70" />
+                    <span>{link.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
@@ -218,7 +303,7 @@ export function SiteFooter() {
       <DotGrid className="absolute right-10 top-1/3 hidden lg:grid" cols={6} rows={4} />
 
       <div className="relative mx-auto max-w-[1720px] px-6 py-16 md:px-12 lg:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.9fr] lg:gap-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_0.9fr_1.3fr_0.9fr_0.8fr] lg:gap-8">
           {/* Brand column */}
           <div className="flex flex-col">
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
@@ -273,6 +358,7 @@ export function SiteFooter() {
 
           {/* Link columns */}
           <LinkColumn title="OFERTA" links={OFERTA} />
+          <GroupedLinkColumn title="INWESTYCJE I NIERUCHOMOŚCI" groups={INWESTYCJE_GROUPS} />
           <LinkColumn title="NOTY PRAWNE" links={NOTY_PRAWNE} />
           <LinkColumn title="KONTAKT" links={KONTAKT} />
         </div>

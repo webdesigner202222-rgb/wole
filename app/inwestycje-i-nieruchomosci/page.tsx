@@ -36,7 +36,7 @@ const data: CategoryLandingData = {
       icon_svg: "/images/icons/inwestycje-nieruchomosci-komercyjne.svg",
       name: "Nieruchomości komercyjne",
       desc: "Hale, biurowce, centra handlowe i hotele na terenie całej Polski.",
-      url: "/inwestycje-i-nieruchomosci/nieruchomosci-komercyjne",
+      url: "/inwestycje-i-nieruchomosci/sprzedaz-nieruchomosci-komercyjnych",
     },
     {
       icon_svg: "/images/icons/inwestycje-biznesplany.svg",

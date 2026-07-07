@@ -1,7 +1,14 @@
+export type NavChild = {
+  label: string
+  href: string
+}
+
 export type NavSubItem = {
   label: string
+  /** Direct link for simple items. Omit for group headers with children. */
   href?: string
-  children?: string[]
+  /** Clickable sub-links rendered under a bold, non-clickable group header. */
+  children?: NavChild[]
 }
 
 export type NavItem = {
@@ -34,23 +41,52 @@ export const navItems: NavItem[] = [
   {
     label: "Inwestycje i nieruchomości",
     columns: [
-      { label: "Projekty farm fotowoltaicznych" },
-      { label: "Projekty fotowoltaiczne i magazynów energii" },
-      { label: "Dystrybucja i sprzedaż magazynów energii" },
+      {
+        label: "Projekty farm fotowoltaicznych",
+        children: [
+          {
+            label: "Projekty fotowoltaiczne i magazynów energii",
+            href: "/inwestycje-i-nieruchomosci/fotowoltaika?tab=projekty-magazyny",
+          },
+          {
+            label: "Dystrybucja i sprzedaż magazynów energii",
+            href: "/inwestycje-i-nieruchomosci/fotowoltaika?tab=dystrybucja-sprzedaz",
+          },
+        ],
+      },
       {
         label: "Sprzedaż domków modułowych",
         children: [
-          "Stan deweloperski",
-          "Stan wykończenia pod klucz (z wyposażeniem)",
-          "Obiekty modułowe handlowo-usługowe",
+          {
+            label: "Stan deweloperski",
+            href: "/inwestycje-i-nieruchomosci/domki-modulowe?tab=stan-deweloperski",
+          },
+          {
+            label: "Stan wykończenia pod klucz (z wyposażeniem)",
+            href: "/inwestycje-i-nieruchomosci/domki-modulowe?tab=pod-klucz",
+          },
+          {
+            label: "Obiekty modułowe handlowo-usługowe",
+            href: "/inwestycje-i-nieruchomosci/domki-modulowe?tab=obiekty-uslugowe",
+          },
         ],
       },
       {
         label: "Projektowanie",
-        children: ["Hale", "Biura", "Osiedla"],
+        children: [
+          { label: "Hale", href: "/inwestycje-i-nieruchomosci/domki-modulowe/projektowanie?tab=hale" },
+          { label: "Biura", href: "/inwestycje-i-nieruchomosci/domki-modulowe/projektowanie?tab=biura" },
+          { label: "Osiedla", href: "/inwestycje-i-nieruchomosci/domki-modulowe/projektowanie?tab=osiedla" },
+        ],
       },
-      { label: "Sprzedaż nieruchomości komercyjnych / deweloperskich" },
-      { label: "Tworzenie biznesplanów" },
+      {
+        label: "Sprzedaż nieruchomości komercyjnych / deweloperskich",
+        href: "/inwestycje-i-nieruchomosci/sprzedaz-nieruchomosci-komercyjnych",
+      },
+      {
+        label: "Tworzenie biznesplanów",
+        href: "/inwestycje-i-nieruchomosci/biznesplany",
+      },
     ],
   },
   { label: "O nas", href: "/#o-nas" },
