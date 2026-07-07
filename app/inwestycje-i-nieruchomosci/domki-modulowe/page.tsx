@@ -5,44 +5,33 @@ import { CategoryLandingTemplate, type CategoryLandingData } from "@/components/
 import { PersonIcon } from "@/components/why-us-icons"
 
 export const metadata: Metadata = {
-  title: "Inwestycje i nieruchomości | Broker Kredytowy",
+  title: "Domki modułowe | Broker Kredytowy",
   description:
-    "Finansujemy rozwój firm i inwestycje w nieruchomości. Fotowoltaika, domki modułowe, obiekty komercyjne, projektowanie i biznesplany.",
+    "Domy modułowe w stanie deweloperskim oraz pod klucz. Nowoczesne, szybkie w realizacji rozwiązania mieszkaniowe wraz z finansowaniem.",
 }
 
 const data: CategoryLandingData = {
   breadcrumbs: [
     { label: "Strona główna", href: "/" },
     { label: "Inwestycje i nieruchomości", href: "/inwestycje-i-nieruchomosci" },
+    { label: "Domki modułowe", href: "/inwestycje-i-nieruchomosci/domki-modulowe" },
   ],
-  category_label: "INWESTYCJE I NIERUCHOMOŚCI",
-  headline: "Rozwijaj swój biznes\ni inwestycje",
+  category_label: "DOMKI MODUŁOWE",
+  headline: "Nowoczesne domy\nmodułowe",
   description:
-    "Finansujemy rozwój firm i inwestycje w nieruchomości. Pomagamy znaleźć najlepsze rozwiązania dopasowane do Twoich celów.",
+    "Domy modułowe w stanie deweloperskim oraz pod klucz. Szybka realizacja i finansowanie dopasowane do Twoich potrzeb.",
   products: [
     {
-      icon_svg: "/images/icons/inwestycje-fotowoltaika.svg",
-      name: "Fotowoltaika",
-      desc: "Projekty fotowoltaiczne oraz dystrybucja magazynów energii.",
-      url: "/inwestycje-i-nieruchomosci/fotowoltaika",
+      icon_svg: "/images/icons/inwestycje-domki-stan-deweloperski.svg",
+      name: "Domki modułowe - stan deweloperski",
+      desc: "Solidna konstrukcja gotowa do wykończenia według własnych potrzeb.",
+      url: "/inwestycje-i-nieruchomosci/domki-modulowe/stan-deweloperski",
     },
     {
       icon_svg: "/images/icons/inwestycje-domki-pod-klucz.svg",
-      name: "Domki modułowe",
-      desc: "Domy modułowe w stanie deweloperskim oraz pod klucz.",
-      url: "/inwestycje-i-nieruchomosci/domki-modulowe",
-    },
-    {
-      icon_svg: "/images/icons/inwestycje-nieruchomosci-komercyjne.svg",
-      name: "Nieruchomości komercyjne",
-      desc: "Hale, biurowce, centra handlowe i hotele na terenie całej Polski.",
-      url: "/inwestycje-i-nieruchomosci/nieruchomosci-komercyjne",
-    },
-    {
-      icon_svg: "/images/icons/inwestycje-biznesplany.svg",
-      name: "Biznesplany",
-      desc: "Profesjonalne biznesplany dla Twojego przedsięwzięcia.",
-      url: "/inwestycje-i-nieruchomosci/biznesplany",
+      name: "Domki modułowe - pod klucz",
+      desc: "Kompletny dom gotowy do zamieszkania, wraz z wyposażeniem.",
+      url: "/inwestycje-i-nieruchomosci/domki-modulowe/pod-klucz",
     },
   ],
   why_us_heading: "Dlaczego warto skorzystać z naszej oferty?",
@@ -58,7 +47,7 @@ const data: CategoryLandingData = {
   cta_phone: "+48 723 609 936",
 }
 
-export default function InwestycjeNieruchomosciPage() {
+export default function DomkiModulowePage() {
   return (
     <main className="min-h-screen bg-background">
       <SiteHeader />

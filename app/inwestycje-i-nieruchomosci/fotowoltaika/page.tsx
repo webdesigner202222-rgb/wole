@@ -5,44 +5,33 @@ import { CategoryLandingTemplate, type CategoryLandingData } from "@/components/
 import { PersonIcon } from "@/components/why-us-icons"
 
 export const metadata: Metadata = {
-  title: "Inwestycje i nieruchomości | Broker Kredytowy",
+  title: "Fotowoltaika i magazyny energii | Broker Kredytowy",
   description:
-    "Finansujemy rozwój firm i inwestycje w nieruchomości. Fotowoltaika, domki modułowe, obiekty komercyjne, projektowanie i biznesplany.",
+    "Projekty fotowoltaiczne oraz dystrybucja i sprzedaż magazynów energii. Kompleksowe finansowanie inwestycji w odnawialne źródła energii.",
 }
 
 const data: CategoryLandingData = {
   breadcrumbs: [
     { label: "Strona główna", href: "/" },
     { label: "Inwestycje i nieruchomości", href: "/inwestycje-i-nieruchomosci" },
+    { label: "Fotowoltaika", href: "/inwestycje-i-nieruchomosci/fotowoltaika" },
   ],
-  category_label: "INWESTYCJE I NIERUCHOMOŚCI",
-  headline: "Rozwijaj swój biznes\ni inwestycje",
+  category_label: "FOTOWOLTAIKA",
+  headline: "Odnawialne źródła\nenergii",
   description:
-    "Finansujemy rozwój firm i inwestycje w nieruchomości. Pomagamy znaleźć najlepsze rozwiązania dopasowane do Twoich celów.",
+    "Projekty fotowoltaiczne oraz dystrybucja magazynów energii. Pomagamy sfinansować inwestycje w zieloną energię.",
   products: [
     {
       icon_svg: "/images/icons/inwestycje-fotowoltaika.svg",
-      name: "Fotowoltaika",
-      desc: "Projekty fotowoltaiczne oraz dystrybucja magazynów energii.",
-      url: "/inwestycje-i-nieruchomosci/fotowoltaika",
+      name: "Projekty fotowoltaiczne i magazyny energii",
+      desc: "Kompleksowe projekty instalacji fotowoltaicznych wraz z magazynami energii.",
+      url: "/inwestycje-i-nieruchomosci/fotowoltaika/projekty-i-magazyny-energii",
     },
     {
-      icon_svg: "/images/icons/inwestycje-domki-pod-klucz.svg",
-      name: "Domki modułowe",
-      desc: "Domy modułowe w stanie deweloperskim oraz pod klucz.",
-      url: "/inwestycje-i-nieruchomosci/domki-modulowe",
-    },
-    {
-      icon_svg: "/images/icons/inwestycje-nieruchomosci-komercyjne.svg",
-      name: "Nieruchomości komercyjne",
-      desc: "Hale, biurowce, centra handlowe i hotele na terenie całej Polski.",
-      url: "/inwestycje-i-nieruchomosci/nieruchomosci-komercyjne",
-    },
-    {
-      icon_svg: "/images/icons/inwestycje-biznesplany.svg",
-      name: "Biznesplany",
-      desc: "Profesjonalne biznesplany dla Twojego przedsięwzięcia.",
-      url: "/inwestycje-i-nieruchomosci/biznesplany",
+      icon_svg: "/images/icons/inwestycje-storefront-zapas.svg",
+      name: "Dystrybucja i sprzedaż magazynów energii",
+      desc: "Dystrybucja oraz sprzedaż nowoczesnych magazynów energii.",
+      url: "/inwestycje-i-nieruchomosci/fotowoltaika/dystrybucja-magazynow-energii",
     },
   ],
   why_us_heading: "Dlaczego warto skorzystać z naszej oferty?",
@@ -58,7 +47,7 @@ const data: CategoryLandingData = {
   cta_phone: "+48 723 609 936",
 }
 
-export default function InwestycjeNieruchomosciPage() {
+export default function FotowoltaikaPage() {
   return (
     <main className="min-h-screen bg-background">
       <SiteHeader />
